@@ -14,7 +14,8 @@ import java.util.List;
 @Service
 public class BookValidator {
 
-    private static final String ERROR_MESSAGE = "Validation of %s went wrong. Name or surname must start with letter A";
+    private static final String ERROR_MESSAGE =
+            "Validation of %s went wrong. Forename or surname must start with letter A";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookValidator.class);
 

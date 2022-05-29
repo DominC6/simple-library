@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Library</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>List of all books</p>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+    </tr>
+    <tr th:each="book :${bookRecords}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.isbn}"></td>
+    </tr>
+</table>
+<a href="/addBook">
+    <button>Add new record</button>
+</a>
+</body>
+</html>
