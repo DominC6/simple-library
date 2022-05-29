@@ -26,6 +26,23 @@ public class BookEntity {
     @Column(name = "ISBN")
     private String isbn;
 
+    /**
+     * Default constructor
+     */
+    public BookEntity() {
+    }
+
+    /**
+     * Parametrized constructor, creates {@link BookEntity} from {@link BookDTO}
+     *
+     * @param bookDTO the book data
+     */
+    public BookEntity(BookDTO bookDTO) {
+        this.author = bookDTO.getAuthor();
+        this.isbn = bookDTO.getIsbn();
+        this.title = bookDTO.getTitle();
+    }
+
     public Long getId() {
         return id;
     }
