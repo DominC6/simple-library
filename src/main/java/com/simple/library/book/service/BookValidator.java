@@ -24,7 +24,7 @@ public class BookValidator {
      *
      * @param author the author
      */
-    static void validateAuthor(String author) {
+    public static void validateAuthor(String author) {
         boolean doesForeNameOrSurnameStartWithA = splitForenameAndSurname(author).stream()
                 .anyMatch(name -> name.matches("A.*"));
 

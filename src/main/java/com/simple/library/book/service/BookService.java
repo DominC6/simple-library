@@ -2,7 +2,8 @@ package com.simple.library.book.service;
 
 import com.simple.library.book.entity.BookDTO;
 import com.simple.library.book.entity.BookEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,9 +19,15 @@ import java.util.stream.Collectors;
 public class BookService {
 
     private static final String BOOK_DTO_MUST_NOT_BE_NULL = "Book object must not be null";
+    private static final String NEW_BOOK_ENTRY_PERSISTED = "New book entry has been persisted to the database";
 
-    @Autowired
-    private BookRepository bookRepository;
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookService.class);
+
+    private final BookRepository bookRepository;
+
+    BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     /**
      * Gets all books from database.
@@ -45,6 +52,7 @@ public class BookService {
         }
         BookEntity newBookEntity = new BookEntity(bookDTO);
         BookEntity persistedEntity = bookRepository.save(newBookEntity);
+        LOGGER.info(NEW_BOOK_ENTRY_PERSISTED);
         return BookDTO.fromEntity(persistedEntity);
     }
 }

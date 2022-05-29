@@ -6,6 +6,7 @@ import java.util.Objects;
  * Data transfer object of Book
  */
 public class BookDTO {
+
     private Long id;
 
     private String title;

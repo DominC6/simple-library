@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Class containing representation of BOOK table record.
@@ -14,7 +15,8 @@ public class BookEntity {
 
     @Id
     @Column(name = "BOOK_ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TEST_ENTITY_ID")
+    @SequenceGenerator(name = "SEQ_BOOK_ID", sequenceName = "SEQ_BOOK_ID", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_BOOK_ID")
     private Long id;
 
     @Column(name = "TITLE")

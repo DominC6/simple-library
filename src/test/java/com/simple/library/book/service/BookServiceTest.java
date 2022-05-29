@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Collections;
 import java.util.List;
 
+import static com.simple.library.book.entity.BookTestDataProducer.createDto;
+import static com.simple.library.book.entity.BookTestDataProducer.createEntry;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -80,21 +82,6 @@ public class BookServiceTest {
         assertThrows(IllegalArgumentException.class, () -> bookService.addNewBook(bookDTO));
     }
 
-    private BookDTO createDto() {
-        BookDTO bookDTO = new BookDTO();
-        bookDTO.setIsbn("ISBN");
-        bookDTO.setAuthor("Author");
-        bookDTO.setTitle("Title");
-        return bookDTO;
-    }
 
-    private BookEntity createEntry(Long id) {
-        BookEntity bookEntity = new BookEntity();
-        bookEntity.setId(id);
-        bookEntity.setAuthor("Author");
-        bookEntity.setTitle("Title");
-        bookEntity.setIsbn("Isbn");
-        return bookEntity;
-    }
 }
 
