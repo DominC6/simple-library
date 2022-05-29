@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Add new book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+    .form-field-error {
+        border-color: red;
+    }
+</style>
+<body>
+<h1>Add new book record</h1>
+<form action="#" th:action="@{/addBook}" th:object="${book}" method="post">
+    <table>
+        <tr>
+            <td>Title:</td>
+            <td><input type="text" th:field="*{title}" /></td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td><input type="text" th:field="*{author}" th:errorclass="form-field-error"/></td>
+            <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
+        </tr>
+        <tr>
+            <td>ISBN:</td>
+            <td><input type="text" th:field="*{isbn}" /></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
